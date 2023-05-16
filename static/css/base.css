@@ -1,0 +1,74 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+body {
+  margin: 0;
+  background-image: url("https://images.unsplash.com/photo-1533335121856-52d185e85ec1");
+  background-size: cover;
+  color: white;
+  font-size: 18px;
+}
+
+tspan {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  background-color: white;
+}
+
+.sidebar a {
+  display: block;
+  color: #999da1;
+  padding: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 2px;
+  border-radius: 10px;
+}
+
+.sidebar a.active {
+  background: linear-gradient(90deg, #97ff97, #befbbc 35%, #ddf8dc);
+  color: black;
+}
+
+.sidebar a:hover:not(.active) {
+  background: linear-gradient(90deg, #97ff97, #befbbc 35%, #ddf8dc);
+  color: black;
+}
+
+.main {
+  margin-left: 350px;
+}
+
+.hover-shadow:hover {
+  box-shadow: 15px 15px 14px -1px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
