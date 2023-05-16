@@ -6,15 +6,8 @@ import pickle
 from keras.models import load_model
 from werkzeug.utils import secure_filename
 import tensorflow as tf
-from tensorflow.compat.v1 import ConfigProto
-from tensorflow.compat.v1 import InteractiveSession
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-
-config = ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.5
-config.gpu_options.allow_growth = True
-session = InteractiveSession(config=config)
 
 app = Flask(__name__)
 crop_prediction_model = pickle.load(open('./models/crop-prediction.pkl', 'rb'))
