@@ -17,6 +17,14 @@ tomato_model = load_model("./models/tomato.h5")
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/user-login')
+def user_login():
+    return render_template('user-login.html')
+
+@app.route('/dashboard')
+def dashboard():
     return render_template('dashboard.html', active_page="dashboard")
 
 

@@ -13,6 +13,62 @@ tspan {
   visibility: hidden !important;
 }
 
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.w-65 {
+ width: 65%;
+}
+
+.home {
+  background: url(https://images6.alphacoders.com/114/1142152.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.heading {
+  font-family: cursive;
+  font-size: 150px;
+  font-weight: 600;
+  color: #405f35;
+}
+
+.btn-font{
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.btn1 {
+  color: white;
+  background-color: green;
+}
+
+.btn1:hover{
+  color: green;
+  border: 1px solid green;
+}
+
+.btn2 {
+  color: white;
+  background-color: brown;
+}
+
+.btn2:hover{
+  color: brown;
+  border: 1px solid brown;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
