@@ -107,6 +107,22 @@ a.nostyle:visited {
   margin-left: 350px;
 }
 
+.box {
+  background: url(https://static.vecteezy.com/system/resources/previews/000/688/352/original/exotic-branches-leaves-plants-background-vector.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 846px;
+  height: 600px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.inner-box {
+  color: black;
+  width: 500px;
+  height: 300px;
+}
+
 .hover-shadow:hover {
   box-shadow: 15px 15px 14px -1px rgba(0, 0, 0, 0.75);
 }
