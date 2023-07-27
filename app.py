@@ -27,15 +27,21 @@ def admin_login():
 def user_login():
     return render_template('user-login.html')
 
+@app.route('/admin-dashboard')
+def admin_dashboard():
+    return render_template('admin-dashboard.html', active_page="dashboard")
+
+@app.route('/add-user')
+def add_user():
+    return render_template('add-user.html', active_page="add-user")
+
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html', active_page="dashboard")
 
-
 @app.route('/crop-prediction')
 def crop_prediction():
     return render_template('crop-prediction.html', active_page="crop-prediction")
-
 
 @app.route('/crop_predict', methods=['POST'])
 def crop_predict():
