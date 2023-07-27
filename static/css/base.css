@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-image: url("https://images.unsplash.com/photo-1533335121856-52d185e85ec1");
+  background-image: url("https://www.pixel4k.com/wp-content/uploads/2018/10/leaves-dark-plant-green-blur-closeup-4k_1540145832.jpg");
   background-size: cover;
   color: white;
   font-size: 18px;
@@ -26,12 +26,11 @@ a.nostyle:visited {
 }
 
 .w-65 {
- width: 65%;
+  width: 65%;
 }
 
 .home {
-  background: url(https://images6.alphacoders.com/114/1142152.jpg) no-repeat center center
-    fixed;
+  background: url(https://images6.alphacoders.com/114/1142152.jpg) no-repeat center center fixed;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -44,7 +43,7 @@ a.nostyle:visited {
   color: #405f35;
 }
 
-.btn-font{
+.btn-font {
   font-family: monospace;
   font-weight: 600;
 }
@@ -54,7 +53,7 @@ a.nostyle:visited {
   background-color: green;
 }
 
-.btn1:hover{
+.btn1:hover {
   color: green;
   border: 1px solid green;
 }
@@ -64,12 +63,14 @@ a.nostyle:visited {
   background-color: brown;
 }
 
-.btn2:hover{
+.btn2:hover {
   color: brown;
   border: 1px solid brown;
 }
 
 .sidebar {
+  background: url(/static/images/sidebar.png);
+  background-position-x: -20px;
   margin: 0;
   padding: 0;
   width: 350px;
@@ -78,11 +79,13 @@ a.nostyle:visited {
   overflow: auto;
   text-align: center;
   background-color: white;
+  border-radius: 0 15px 15px 0;
 }
 
 .sidebar a {
   display: block;
-  color: #999da1;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 16px;
   text-decoration: none;
   font-weight: 500;
@@ -114,9 +117,11 @@ a.nostyle:visited {
     height: auto;
     position: relative;
   }
+
   .sidebar a {
     float: left;
   }
+
   .main {
     margin-left: 0;
   }
