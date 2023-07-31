@@ -25,6 +25,10 @@ a.nostyle:visited {
   cursor: auto;
 }
 
+.test {
+  color: black;
+}
+
 .cursor-pointer {
   cursor: pointer !important;
 }
