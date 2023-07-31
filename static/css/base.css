@@ -25,6 +25,10 @@ a.nostyle:visited {
   cursor: auto;
 }
 
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
 .w-65 {
   width: 65%;
 }
