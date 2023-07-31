@@ -35,28 +35,28 @@
             <p>Please login to your account.</p>
           </div>
           <div class="card-body">
-            <!-- <form class="row justify-content-center align-items-center"> -->
-            <div class="row justify-content-center align-items-center">
-              <div class="col-lg-7">
-                <div class="mb-3">
-                  <input type="email" class="form-control" id="email" placeholder="Email" />
-                </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" id="pwd" placeholder="Password" />
-                </div>
+            <form method="POST">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-lg-7">
+                  <div class="mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                  </div>
 
-                <div class="row">
-                  <div class="col text-center">
-                    <a href="/dashboard">
-                      <button class="btn btn-1 px-5 mt-4" style="background-color: green; color: white">
-                        Login
-                      </button>
-                    </a>
+                  <div class="row">
+                    <div class="col text-center">
+                      <a href="/dashboard">
+                        <button type="submit" class="btn btn-1 px-5 mt-4" style="background-color: green; color: white">
+                          Login
+                        </button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- </form> -->
+            </form>
           </div>
         </div>
       </div>

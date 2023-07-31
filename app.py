@@ -1,6 +1,8 @@
 from __future__ import division, print_function
 import os
-from flask import Flask, render_template, request
+from os import path
+from flask import Flask, render_template, request, flash
+from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 import pickle
 from keras.models import load_model
@@ -8,12 +10,24 @@ from werkzeug.utils import secure_filename
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+# from .models import User, Plant
+
+db = SQLAlchemy()
+DB_NAME = 'database.db'
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'cs19'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+db.init_app(app)
+
 crop_prediction_model = pickle.load(open('./models/crop-prediction.pkl', 'rb'))
 banana_model = load_model("./models/banana.h5")
 tomato_model = load_model("./models/tomato.h5")
 
+# def create_database(app):
+#     if not path.exists(DB_NAME):
+#         db.create_all(app=app)
+#         print('Created Database!')
 
 @app.route('/')
 def index():
@@ -23,16 +37,32 @@ def index():
 def admin_login():
     return render_template('admin-login.html')
 
-@app.route('/user-login')
+@app.route('/user-login', methods=['GET', 'POST'])
 def user_login():
+    data = request.form
+    print(data)
     return render_template('user-login.html')
 
 @app.route('/admin-dashboard')
 def admin_dashboard():
     return render_template('admin-dashboard.html', active_page="dashboard")
 
-@app.route('/add-user')
+@app.route('/add-user', methods=['GET', 'POST'])
 def add_user():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if len(email) < 4:
+            flash('Email must be greater than 3 characters.', category='error')
+        elif len(name) < 2:
+            flash('Name must be greater than 1 character.', category='error')
+        elif len(password) < 7:
+            flash('Password must be greater than 6 characters.', category='error')
+        else:
+            flash('Account created!', category='success')
+
     return render_template('add-user.html', active_page="add-user")
 
 @app.route('/dashboard')
@@ -137,6 +167,7 @@ def tomato_model_predict(img_path, model):
         preds = "Healthy"
     return preds
 
+# create_database(app)
 
 if __name__ == "__main__":
     app.run(debug=True)

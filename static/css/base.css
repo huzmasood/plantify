@@ -112,9 +112,12 @@ a.nostyle:visited {
 }
 
 .add-user-container {
+  color: black;
   background-color: white;
-  height: 50px;
-  width: 50px;
+  width: 50%;
+  padding: 30px;
+  border: 2px solid saddlebrown;
+  border-radius: 10px;
 }
 
 .box {

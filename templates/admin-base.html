@@ -14,10 +14,28 @@
 </head>
 
 <body>
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %} {% for category, message in messages %} {% if category ==
+  'error' %}
+  <div class="alert alert-danger alter-dismissable fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% else %}
+  <div class="alert alert-success alter-dismissable fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %} {% endfor %} {% endif %} {% endwith %}
   <div class="sidebar" style="z-index: 999">
     <a class="{{'active' if active_page == 'dashboard' }}" href="/admin-dashboard"><i class="bi-speedometer2"
         style="margin-right: 8px; font-size: 20px"></i>Dashboard</a>
-    <a class="{{'active' if active_page == 'add-user' }}" href="/add-user"><i class="bi-person-fill-add" style="margin-right: 8px; font-size: 20px"></i>Add User</a>
+    <a class="{{'active' if active_page == 'add-user' }}" href="/add-user"><i class="bi-person-fill-add"
+        style="margin-right: 8px; font-size: 20px"></i>Add User</a>
     <a href="/admin-login"><i class="bi-box-arrow-left" style="margin-right: 8px; font-size: 20px"></i>Logout</a>
   </div>
   <div class="main">{% block body %}{% endblock %}</div>
