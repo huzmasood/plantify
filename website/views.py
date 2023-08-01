@@ -5,17 +5,17 @@ import os
 import numpy as np
 import pickle
 from werkzeug.utils import secure_filename
-from tensorflow.keras.utils import load_img, img_to_array
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import load_model
+# from tensorflow.keras.utils import load_img, img_to_array
+# from tensorflow.keras.preprocessing import image
+# from tensorflow.keras.models import load_model
 from .models import User, Plant
 from werkzeug.security import generate_password_hash
 from . import db
 import json
 
 crop_prediction_model = pickle.load(open('./website/models/crop-prediction.pkl', 'rb'))
-banana_model = load_model("./website/models/banana.h5")
-tomato_model = load_model("./website/models/tomato.h5")
+# banana_model = load_model("./website/models/banana.h5")
+# tomato_model = load_model("./website/models/tomato.h5")
 
 views = Blueprint('views', __name__)
 
@@ -133,17 +133,17 @@ def banana():
         return redirect('admin-dashboard')
     return render_template('banana-panel.html', active_page="banana-panel")
 
-@views.route('/banana_predict', methods=['GET', 'POST'])
-def banana_predict():
-    if request.method == 'POST':
-        f = request.files['file']
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
-            basepath, 'uploads/banana', secure_filename(f.filename))
-        f.save(file_path)
-        preds = banana_model_predict(file_path, banana_model)
-        return preds
-    return None
+# @views.route('/banana_predict', methods=['GET', 'POST'])
+# def banana_predict():
+#     if request.method == 'POST':
+#         f = request.files['file']
+#         basepath = os.path.dirname(__file__)
+#         file_path = os.path.join(
+#             basepath, 'uploads/banana', secure_filename(f.filename))
+#         f.save(file_path)
+#         preds = banana_model_predict(file_path, banana_model)
+#         return preds
+#     return None
 
 
 @views.route('/tomato-panel')
@@ -154,65 +154,65 @@ def tomato():
     return render_template('tomato-panel.html', active_page="tomato-panel")
 
 
-@views.route('/tomato_predict', methods=['GET', 'POST'])
-def tomato_predict():
-    if request.method == 'POST':
-        f = request.files['file']
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
-            basepath, 'uploads/tomato', secure_filename(f.filename))
-        f.save(file_path)
-        preds = tomato_model_predict(file_path, tomato_model)
-        result = preds
-        return result
-    return None
+# @views.route('/tomato_predict', methods=['GET', 'POST'])
+# def tomato_predict():
+#     if request.method == 'POST':
+#         f = request.files['file']
+#         basepath = os.path.dirname(__file__)
+#         file_path = os.path.join(
+#             basepath, 'uploads/tomato', secure_filename(f.filename))
+#         f.save(file_path)
+#         preds = tomato_model_predict(file_path, tomato_model)
+#         result = preds
+#         return result
+#     return None
 
 
-def banana_model_predict(img_path, model):
-    img = load_img(img_path, target_size=(100, 100))
-    x = img_to_array(img)
-    x = np.true_divide(x, 255)
-    y_pred = model.predict(x.reshape(1, 100, 100, 3))
-    preds = y_pred
-    str1 = ''
-    result = np.argmax(preds, axis=1)
-    if result == 0:
-        str1 = 'Disease: Black Bacterial Wilt, For treatment use Fertilizers with Calcium(Ca)'
-    elif result == 1:
-        str1 = 'Disease: Black Sigatoka Disease, For treatment use fungicides like copper oxychloride, mancozeb, chlorothalonil or carbendazim'
-    elif result == 2:
-        str1 = 'Healthy Leaf'
-    else:
-        str1 = "It's not a banana leaf, Please upload a picture of Banana Leaf"
-    return str1
+# def banana_model_predict(img_path, model):
+#     img = load_img(img_path, target_size=(100, 100))
+#     x = img_to_array(img)
+#     x = np.true_divide(x, 255)
+#     y_pred = model.predict(x.reshape(1, 100, 100, 3))
+#     preds = y_pred
+#     str1 = ''
+#     result = np.argmax(preds, axis=1)
+#     if result == 0:
+#         str1 = 'Disease: Black Bacterial Wilt, For treatment use Fertilizers with Calcium(Ca)'
+#     elif result == 1:
+#         str1 = 'Disease: Black Sigatoka Disease, For treatment use fungicides like copper oxychloride, mancozeb, chlorothalonil or carbendazim'
+#     elif result == 2:
+#         str1 = 'Healthy Leaf'
+#     else:
+#         str1 = "It's not a banana leaf, Please upload a picture of Banana Leaf"
+#     return str1
 
 
-def tomato_model_predict(img_path, model):
-    print(img_path)
-    img = image.load_img(img_path, target_size=(224, 224))
-    x = image.img_to_array(img)
-    x = x/255
-    x = np.expand_dims(x, axis=0)
-    preds = model.predict(x)
-    preds = np.argmax(preds, axis=1)
-    if preds == 0:
-        preds = "Bacterial Spot"
-    elif preds == 1:
-        preds = "Early Blight"
-    elif preds == 2:
-        preds = "Late Blight"
-    elif preds == 3:
-        preds = "Leaf Mold"
-    elif preds == 4:
-        preds = "Septoria Leaf Spot"
-    elif preds == 5:
-        preds = "Spider Mites - Two-Spotted Spider Mite"
-    elif preds == 6:
-        preds = "Target Spot"
-    elif preds == 7:
-        preds = "Tomato Yellow Leaf Curl Virus"
-    elif preds == 8:
-        preds = "Tomato Mosaic Virus"
-    else:
-        preds = "Healthy"
-    return preds
+# def tomato_model_predict(img_path, model):
+#     print(img_path)
+#     img = image.load_img(img_path, target_size=(224, 224))
+#     x = image.img_to_array(img)
+#     x = x/255
+#     x = np.expand_dims(x, axis=0)
+#     preds = model.predict(x)
+#     preds = np.argmax(preds, axis=1)
+#     if preds == 0:
+#         preds = "Bacterial Spot"
+#     elif preds == 1:
+#         preds = "Early Blight"
+#     elif preds == 2:
+#         preds = "Late Blight"
+#     elif preds == 3:
+#         preds = "Leaf Mold"
+#     elif preds == 4:
+#         preds = "Septoria Leaf Spot"
+#     elif preds == 5:
+#         preds = "Spider Mites - Two-Spotted Spider Mite"
+#     elif preds == 6:
+#         preds = "Target Spot"
+#     elif preds == 7:
+#         preds = "Tomato Yellow Leaf Curl Virus"
+#     elif preds == 8:
+#         preds = "Tomato Mosaic Virus"
+#     else:
+#         preds = "Healthy"
+#     return preds
