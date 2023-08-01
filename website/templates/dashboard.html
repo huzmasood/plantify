@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block head %}
+<title>Dashboard - Plantify</title>
+{% endblock %} {% block body %}
+<div class="d-flex justify-content-end text-dark">
+  <div class="d-flex justify-content-center align-items-center bg-white m-3 rounded-pill"><span class="mx-3">{{ name }}</span> <i class="bi bi-person-circle fs-4"></i>
+  </div>
+</div>
+<div style="
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 85vh;
+  ">
+  <div style="
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+    ">
+    <div class="hover-shadow" style="border-radius: 10px; transition: 0.4s;">
+      <div style="height: 218px; overflow: hidden; border-radius: 10px; border: 2px solid saddlebrown">
+        <iframe width="450" height="260"
+          src="https://thingspeak.com/channels/2136775/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Temperature&type=line"></iframe>
+      </div>
+    </div>
+    <div class="hover-shadow" style="border-radius: 10px; transition: 0.4s">
+      <div style="height: 218px; overflow: hidden; border-radius: 10px; border: 2px solid saddlebrown">
+        <iframe width="450" height="260" style="border: 1px solid #cccccc"
+          src="https://thingspeak.com/channels/2136775/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Humidity&type=line"></iframe>
+      </div>
+    </div>
+  </div>
+  <div style="
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+    ">
+    <div class="hover-shadow" style="border-radius: 10px; transition: 0.4s">
+      <div style="height: 218px; overflow: hidden; border-radius: 10px; border: 2px solid saddlebrown">
+        <iframe width="450" height="260" style="border: 1px solid #cccccc"
+          src="https://thingspeak.com/channels/2136775/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Pressure&type=line"></iframe>
+      </div>
+    </div>
+    <div class="hover-shadow" style="border-radius: 10px; transition: 0.4s">
+      <div style="height: 218px; overflow: hidden; border-radius: 10px; border: 2px solid saddlebrown">
+        <iframe width="450" height="260" style="border: 1px solid #cccccc"
+          src="https://thingspeak.com/channels/2136775/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Moist&type=line"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+body {
+  margin: 0;
+  background-image: url("https://www.pixel4k.com/wp-content/uploads/2018/10/leaves-dark-plant-green-blur-closeup-4k_1540145832.jpg");
+  background-size: cover;
+  color: white;
+  font-size: 18px;
+}
+
+tspan {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.w-65 {
+  width: 65%;
+}
+
+.home {
+  background: url(https://images6.alphacoders.com/114/1142152.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.heading {
+  font-family: cursive;
+  font-size: 150px;
+  font-weight: 600;
+  color: #405f35;
+}
+
+.btn-font {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.btn1 {
+  color: white;
+  background-color: green;
+}
+
+.btn1:hover {
+  color: green;
+  border: 1px solid green;
+}
+
+.btn2 {
+  color: white;
+  background-color: brown;
+}
+
+.btn2:hover {
+  color: brown;
+  border: 1px solid brown;
+}
+
+.sidebar {
+  background: url(/static/images/sidebar.png);
+  background-position-x: -20px;
+  background-position-y: 250px;
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  background-color: white;
+  border-radius: 0 15px 15px 0;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  background-color: #ede9b5;
+  padding: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 2px;
+  border-radius: 10px;
+}
+
+.sidebar a.active {
+  background: linear-gradient(90deg, #97ff97, #befbbc 35%, #ddf8dc);
+  color: black;
+}
+
+.sidebar a:hover:not(.active) {
+  background: linear-gradient(90deg, #97ff97, #befbbc 35%, #ddf8dc);
+  color: black;
+}
+
+.main {
+  margin-left: 350px;
+}
+
+.my-container {
+  color: black;
+  background-color: white;
+  width: 50%;
+  padding: 30px;
+  border: 2px solid saddlebrown;
+  border-radius: 10px;
+}
+
+.box {
+  background: url(https://static.vecteezy.com/system/resources/previews/000/688/352/original/exotic-branches-leaves-plants-background-vector.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 846px;
+  height: 600px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.inner-box {
+  color: black;
+  width: 500px;
+  height: 300px;
+}
+
+.hover-shadow:hover {
+  box-shadow: 15px 15px 14px -1px rgba(0, 0, 0, 0.75);
+}
+
+.alert {
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

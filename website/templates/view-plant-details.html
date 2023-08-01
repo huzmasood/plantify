@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crop-prediction.css') }}" />
+<title>View Plants - Plantify</title>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+{% endblock %} {% block body %}
+{% if user.plants[0] %}
+<div class="d-flex justify-content-center align-items-center">
+  <div class="my-container m-5">
+    <table>
+      <tr>
+        <th>Plant Name</th>
+        <th>Quantity</th>
+        <th>Harvested Date</th>
+        <th>Actions</th>
+      </tr>
+      {% for plant in user.plants %}
+      <tr>
+        <td>{{ plant.name }}</td>
+        <td>{{ plant.quantity }}</td>
+        <td>{{ plant.date }}</td>
+        <td class="text-center"><i class="bi-trash-fill cursor-pointer" style="font-size: 20px"
+            onclick="deletePlant({{ plant.id }})"></i></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+</div>
+{% else %}
+<div class="d-flex justify-content-center align-items-center" style="height: 95vh;">
+  <div class="my-container">
+    <h4 class="text-center">No plants added yet...</h4>
+  </div>
+</div>
+{% endif %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{% endblock %}

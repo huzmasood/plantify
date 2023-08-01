@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/crop-prediction.css') }}"
+/>
+<title>Crop Prediction - Plantify</title>
+{% endblock %} {% block body %}
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 95vh"
+>
+  <div class="login">
+    <h1 style="color: white">Crop Recommendation Using Soil Health Analysis</h1>
+
+    <form action="/crop-prediction" method="POST">
+      <input
+        type="text"
+        class="form-control"
+        name="N"
+        class="form-control"
+        placeholder="N (Nitrogen)"
+        required="required"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="P"
+        placeholder="P (Potassium)"
+        required="required"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="K"
+        placeholder="K (Phosphorus)"
+        required="required"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="temperature"
+        placeholder="Temperature in °C"
+        required="required"
+        maxlength="3"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="humidity"
+        placeholder="Humidity"
+        required="required"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="ph"
+        placeholder="ph"
+        required="required"
+        maxlength="2"
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="rainfall"
+        placeholder="Rainfall"
+        required="required"
+      />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">
+        Predict
+      </button>
+    </form>
+
+    <br />
+
+    <div style="font-size: 20px">{{ prediction_text }}</div>
+  </div>
+</div>
+{% endblock %}

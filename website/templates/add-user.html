@@ -1,0 +1,28 @@
+{% extends 'admin-base.html' %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crop-prediction.css') }}" />
+<title>Add User - Plantify</title>
+{% endblock %} {% block body %}
+<div class="d-flex justify-content-center align-items-center" style="height: 95vh">
+  <div class="my-container">
+    <form method="POST">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control border-dark">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control border-dark">
+      </div>
+      <div>
+        <label for="name">Password:</label>
+        <input type="password" id="password" name="password" class="form-control border-dark">
+      </div>
+      <div class="text-center">
+      <button type="submit" class="btn-1 px-5 mt-4 rounded" style="background-color: green; color: white">
+        Add
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
