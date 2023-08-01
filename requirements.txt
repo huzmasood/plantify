@@ -1,12 +1,9 @@
 Flask==2.3.2
 Flask_Login==0.6.2
 flask_sqlalchemy==3.0.5
-matplotlib==3.7.2
 numpy==1.23.5
 pandas==2.0.1
 scikit_learn==0.24.2
-seaborn==0.12.2
 SQLAlchemy==2.0.19
 tensorflow==2.12.0
-tensorflow_intel
 Werkzeug==2.3.3
