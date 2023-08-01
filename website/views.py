@@ -123,7 +123,7 @@ def crop_prediction():
         int_features = [int(x) for x in request.form.values()]
         final_features = [np.array(int_features)]
         output = crop_prediction_model.predict(final_features)
-        return render_template('crop-prediction.html', active_page="crop-prediction", prediction_text='Suggested crop for given soil health condition is: "{}".'.format(output[0]))
+        return render_template('crop-prediction.html', active_page="crop-prediction", prediction_text='Suggested crop from the values: "{}"'.format(output[0]))
     return render_template('crop-prediction.html', active_page="crop-prediction")
 
 @views.route('/banana-panel')
