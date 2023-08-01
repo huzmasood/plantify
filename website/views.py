@@ -3,9 +3,9 @@ from flask_login import login_required, current_user
 from sqlalchemy import func
 import os
 import numpy as np
-import tensorflow as tf
 import pickle
 from werkzeug.utils import secure_filename
+from tensorflow.keras.utils import load_img, img_to_array
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 from .models import User, Plant
@@ -169,8 +169,8 @@ def tomato_predict():
 
 
 def banana_model_predict(img_path, model):
-    img = tf.keras.utils.load_img(img_path, target_size=(100, 100))
-    x = tf.keras.utils.img_to_array(img)
+    img = load_img(img_path, target_size=(100, 100))
+    x = img_to_array(img)
     x = np.true_divide(x, 255)
     y_pred = model.predict(x.reshape(1, 100, 100, 3))
     preds = y_pred
